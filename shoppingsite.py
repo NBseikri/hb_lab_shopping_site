@@ -104,7 +104,7 @@ def add_to_cart(melon_id):
     # - flash a success message
     # - redirect the user to the cart page
 
-    return render_template('cart.html')
+    return redirect('/cart')
 
 
 @app.route("/login", methods=["GET"])
