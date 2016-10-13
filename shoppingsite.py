@@ -39,6 +39,7 @@ def list_melons():
     """Return page showing all the melons ubermelon has to offer"""
 
     melon_list = melons.get_all()
+    session['test_bracket'] = 'This is a test.'
     return render_template("all_melons.html",
                            melon_list=melon_list)
 
@@ -89,6 +90,9 @@ def add_to_cart(melon_id):
     page and display a confirmation message: 'Melon successfully added to
     cart'."""
 
+    session['cart'] = session.get('cart', {})
+    session['cart'][melon_id] = session['cart'].get('melon_id', 0) + 1
+    flash("Your cart has been updated.")
     # TODO: Finish shopping cart functionality
 
     # The logic here should be something like:
@@ -100,7 +104,7 @@ def add_to_cart(melon_id):
     # - flash a success message
     # - redirect the user to the cart page
 
-    return "Oops! This needs to be implemented!"
+    return render_template('cart.html')
 
 
 @app.route("/login", methods=["GET"])

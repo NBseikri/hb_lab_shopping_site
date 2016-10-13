@@ -16,7 +16,7 @@
                   <div class="price">{{ melon.price_str() }}</div>
                   <a class="btn btn-primary" href="/melon/{{ melon.melon_id }}">Details</a>
               </div>
-
+                 <p>In case you thought this was real, {{ session['test_bracket'] }}</p>
           </div>
       {% endfor %}
     </div>
